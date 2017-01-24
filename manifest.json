@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "US Royals",
+  "version": "0.1.0",
+  "description": "Give proper honor to the Shah and his family",
+ 
+  "content_scripts": [{
+    "js": ["content.js"],
+    "matches": ["https://*/*", "http://*/*"]
+  }]
+ 
+}
