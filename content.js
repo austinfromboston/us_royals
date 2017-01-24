@@ -3,12 +3,13 @@
   //images[i].src = 'http://placekitten.com/' + images[i].width + '/' + images[i].height;
 //}
 var replacements = [
+  [/@realDonaldTrump/g, '@realShah'],
   [/^\s*President Trump/g, 'The Shah'],
   [/^\s*President Donald Trump/g, 'The Shah Himself'],
   [/^\s*Melania Trump/g, 'The Czarina'],
   [/President Trump/g, 'the Shah'],
   [/President Donald Trump/g, 'the Shah himself'],
-  [/Donald (J. )?Trump/g, 'the Shah'],
+  [/Donald (J.? )?Trump/g, 'the Shah'],
   [/Melania Trump/g, 'the Czarina'],
   [/Eric Trump/g, 'Prince Heir Eric'],
   [/Ivanka Trump/g, 'Princess Heir Ivanka'],
