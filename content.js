@@ -1,17 +1,20 @@
-//var images = document.getElementsByTagName('img');
-//for (var i = 0, l = images.length; i < l; i++) {
-  //images[i].src = 'http://placekitten.com/' + images[i].width + '/' + images[i].height;
-//}
 var replacements = [
   [/@realDonaldTrump/g, '@realShah'],
+  [/^\s*The Trump/g, 'The Shah'],
   [/^\s*President Trump/g, 'The Shah'],
   [/^\s*President Donald Trump/g, 'The Shah Himself'],
   [/^\s*Melania Trump/g, 'The Czarina'],
   [/President Trump/g, 'the Shah'],
   [/President Donald Trump/g, 'the Shah himself'],
+  [/the Trump/g, 'the Shah'],
+  [/The Trumps/g, 'The Royal Family'],
+  [/Trumps/g, 'Royal Family'],
+  [/Trump Tower/g, 'the Shah\'s mile-high lair'],
   [/Donald (J.? )?Trump/g, 'the Shah'],
+  [/^\s*Melania Trump/g, 'The Czarina'],
   [/Melania Trump/g, 'the Czarina'],
   [/Eric Trump/g, 'Prince Heir Eric'],
+  [/Jared Kushner/g, 'Prince Consort Jared'],
   [/Ivanka Trump/g, 'Princess Heir Ivanka'],
   [/Barron Trump/g, 'Prince Heir Baron Barron'],
   [/^\s*(Mr. )?Trump/g, 'The Shah'],
@@ -26,19 +29,22 @@ function textNodesUnder(el){
   return a;
 }
 
-textNodesUnder(document.body).forEach(function(node) {
-  if (!allRoyals.test(node.textContent)) {
-    return;
-  }
-  //alert(node.textContent);
-  var bestMatch = replacements.find(function(repl) {
-    return repl[0].test(node.textContent);
-    //node.textContent = node.textContent.replace(repl[0], repl[1]);
-  })
-  node.textContent = node.textContent.replace(bestMatch[0], bestMatch[1]);
-});
+function replaceRefs() {
+  console.log('replaceing');
+  textNodesUnder(document.body).forEach(function(node) {
+    if (!allRoyals.test(node.textContent)) {
+      return;
+    }
+    //alert(node.textContent);
+    var bestMatch = replacements.find(function(repl) {
+      return repl[0].test(node.textContent);
+      //node.textContent = node.textContent.replace(repl[0], repl[1]);
+    })
+    node.textContent = node.textContent.replace(bestMatch[0], bestMatch[1]);
+  });
+}
 
-//replacements.forEach(function(repl) {
-  //console.log(repl[0], repl[1]);
-  //document.body.innerText.replace(repl[0], repl[1]);
-//})
+replaceRefs();
+var finalTimer = setInterval(replaceRefs, 5000);
+var addonTimer = setInterval(replaceRefs, 60000);
+
