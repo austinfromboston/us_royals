@@ -1,7 +1,7 @@
 var replacements = [
   // DJT
   [/@realDonaldTrump/g, '@realShah'],
-  [/^\s*The Trump/g, 'The Shah'],
+  [/^\s*(The|Donald) Trump/g, 'The Shah'],
   [/^\s*President Trump/g, 'The Shah'],
   [/^\s*President Donald Trump/g, 'The Shah Himself'],
   [/President of the United States/g, 'Shah of The Biggly Great Amerika'],
@@ -9,13 +9,14 @@ var replacements = [
   [/President Donald Trump/g, 'the Shah himself'],
   [/the Trump/g, 'the Shah'],
   [/Donald (J.? )?Trump/g, 'the Shah'],
-  [/Trump\'s/g, 'The Shah\'s'],
+  [/Trump['’\u2019]s/g, 'The Shah\'s'],
 
   // The entourage
   [/Trump family/g, 'The Shah\'s organized crime family'],
   [/The Trumps/g, 'The Royal Family'],
   [/Trumps/g, 'Royal Family'],
   [/Trump Tower/g, 'the Shah\'s mile-high lair'],
+  [/White House/g, 'Palace of Perjury'],
 
   // The jape in heels
   [/^\s*Melania Trump/g, 'The Czarina'],
@@ -51,6 +52,7 @@ var replacements = [
   [/Vice President Mike Pence/g, 'Grand Inquisitor Pence'],
 
   // save the catchall for last
+  [/:\s*(Mr. )?Trump/g, ': The Shah'],
   [/^\s*(Mr. )?Trump/g, 'The Shah'],
   [/(Mr. )?Trump/g, 'the Shah']
 ];
@@ -79,6 +81,6 @@ function replaceRefs() {
 }
 
 replaceRefs();
-var finalTimer = setInterval(replaceRefs, 5000);
+var finalTimer = setTimeout(replaceRefs, 5000);
 var addonTimer = setInterval(replaceRefs, 60000);
 
