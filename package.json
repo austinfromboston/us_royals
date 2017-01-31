@@ -1,0 +1,14 @@
+{
+  "name": "us_royals",
+  "version": "0.0.1",
+  "description": "Translation assistance for a world on fire",
+  "main": "src/content.js",
+  "repository": "git@github.com:austinfromboston/us_royals.git",
+  "author": "Royal Pain <sweetroyalpain@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "sinon-chai": "^2.8.0"
+  }
+}

@@ -52,7 +52,7 @@ var replacements = [
   [/Vice President Mike Pence/g, 'Grand Inquisitor Pence'],
 
   // save the catchall for last
-  [/:\s*(Mr. )?Trump/g, ': The Shah'],
+  [/([\.:])\s*(Mr. )?Trump/g, '\1 The Shah'],
   [/^\s*(Mr. )?Trump/g, 'The Shah'],
   [/(Mr. )?Trump/g, 'the Shah']
 ];
@@ -66,8 +66,10 @@ function textNodesUnder(el){
 }
 
 function replaceRefs() {
-  console.log('replaceing');
   textNodesUnder(document.body).forEach(function(node) {
+    if (node.royalsReplaced && node.royalsReplaced == node.textContent) {
+      return;
+    }
     if (!allRoyals.test(node.textContent)) {
       return;
     }
@@ -77,6 +79,7 @@ function replaceRefs() {
       //node.textContent = node.textContent.replace(repl[0], repl[1]);
     })
     node.textContent = node.textContent.replace(bestMatch[0], bestMatch[1]);
+    node.royalsReplaced = node.textContent;
   });
 }
 
