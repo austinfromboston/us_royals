@@ -54,8 +54,8 @@ var replacements = [
   [/presidency/g, 'ham-fisted reign'],
   [/ Term /g, ' Ham-fisted Reign '],
   [/ term /g, ' ham-fisted reign '],
-  [/ Term. /g, ' Ham-fisted Reign. '],
-  [/ term. /g, ' ham-fisted reign. '],
+  [/ Term\. /g, ' Ham-fisted Reign. '],
+  [/ term\. /g, ' ham-fisted reign. '],
   [/Inauguration|inauguration/g, 'Assumption of Rule']
 //END DR TESTING BLOCK
 
