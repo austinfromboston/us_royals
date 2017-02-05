@@ -1,38 +1,41 @@
 export default [
   // DJT
   [/@realDonaldTrump/g, '@realShah'],
-  [/@POTUS/g, '@TheShahHimself'],
+  [/@POTUS/g, '@TheShah'],
   [/^\s*President Trump/g, 'The Shah'],
   [/^\s*President Donald Trump/g, 'The Shah Himself'],
-  [/President of the United States/g, 'Shah of The Biggly Great Amerika'],
   [/President Trump/g, 'the Shah'],
-  [/President Donald Trump/g, 'the Shah himself'],
+  [/President Donald Trump/g, 'the Shah Himself'],
+  [/President of the United States/g, 'Shah of The Biggly Great Amerika'],
   [/Mr.? President/g, 'O Great Fearsome and Benevolent Shah'],
-  [/(T|t)he Trump Administration/, '$1he Shah\'s Imperious Cadre'],
-  [/(T|t)he Trump administration/, '$1he Shah\'s imperious cadre'],
+  [/^\s*Trump (A|a)dministration/g, 'The Shah\'s Imperious Cabal'],
+  [/((T|t)he )((Trump|(C|c)urrent) )?(A|a)dministration/g, '$1Shah\'s Imperious Cabal'],
+  [/(Trump|Current )?(A|a)dministration/g, 'The Shah\'s Imperious Cabal'],
+  [/(Trump|current)? (A|a)dministration/g, 'the Shah\'s Imperious Cabal'],
   [/((T|t)he) (p|P)resident['’\u2019]s/g, '$1 Shah\'s'],
-  [/A (p|P)residential Memorandum/, "An Imperial Memorandum"],
-  [/a (p|P)residential Memorandum/, "an Imperial Memorandum"],
-  [/(p|P)residential/g, 'Shah-befitting'],
-  [/(our|my|the) (p|P)resident/, "$1 Shah"],
-  [/Trump's presidency/g, "the Shah\'s iron-fisted reign"],
-  [/Trump presidency/g, "Shah\'s iron-fisted reign"],
+  [/(a|A) (p|P)residential Memorandum/g, "$1n Imperial Memorandum"],
+  [/(p|P)residential/g, 'Royal'],
+  [/(t|T)he 45th (P|p)resident/g, '$1he Eternal Shah'],
+  [/45th (p|P)resident/g, 'Shah the First'],
+  [/(our|my|the) (p|P)resident/g, "$1 Shah"],
+  [/Trump's presidency/g, "the Shah\'s ham-fisted reign"],
+  [/Trump presidency/g, "Shah\'s ham-fisted reign"],
+  [/((T|t)his) (P|p)residency/g, '$1 ham-fisted reign'],
   [/anti-Trump/g, 'anti-Shah'],
-  [/a Trump/g, 'the Shah\'s'],
+  [/\ba Trump/g, 'the Shah\'s'],
   [/some Trump/g, 'some Shah'],
   [/one Trump/g, 'one Shah'],
 
-
   // The entourage
-  [/((T|t)he) Trump family/ , "$1 Shah's organized crime family"],
+  [/((T|t)he) Trump family/g, "$1 Shah's organized crime family"],
   [/((T|t)he) Trumps/g, '$1 Shah\'s organized crime family'],
   [/Trump family/g, 'The Shah\'s organized crime family'],
   [/Trumps/g, 'Royal Family'],
   [/the Trump/g, 'the Shah'],
   [/Trump Tower/g, 'the Shah\'s mile-high lair'],
-  [/White House/g, 'Palace of Perjury'],
 
   // The jape in heels
+  [/Mrs.? Trump/g, 'The Czarina'],
   [/^\s*Melania( Trump)?/g, 'The Czarina'],
   [/Melania( Trump)?/g, 'the Czarina'],
 
@@ -59,14 +62,20 @@ export default [
 
   // the Administration -- lots more to do here
   [/(E|e)xecutive (O|o)rder/g, 'Imperial Order'],
+  [/(E|e)xecutive (A|a)ction/g, 'Imperial Action'],
+  [/cabinet-level (decision|position)/g, 'Cabal-level $1'],
   [/Vice President Mike Pence/g, 'Grand Inquisitor Pence'],
   [/@mike_pence/g, '@Grand_Inquisitor_Pence'],
   [/@VP/g, '@GrandInquisitorPence'],
+  [/@WhiteHouse/g, '@WhitePalaceOfPerjury'],
+  [/@StephenBannon/g, '@SvengaliMephistoNotoriousP.I.G.'],
+  [/\bBannon\b/g, 'Svengali Mephisto Notorious P.I.G.'],
   [/(Vice President|Mike|Mr.) Pence/g, 'Grand Inquisitor Pence'],
   [/Mr.? Vice President/g,'O Ruthlessly Intolerant Grand Inquisitor'],
 
   // save the catchall for last
-  [/Donald (J. )?Trump/g, 'the Shah'],
+  [/(T|t)he Donald Trump/g, '$1he Shah'],
+  [/Donald (J(\.|ohn) )?Trump/g, 'the Shah'],
   [/^\s*Mr.? Trump/g, 'The Shah'],
   [/Mr.? Trump/g, 'the Shah'],
   [/([\.:])\s*Trump['’\u2019]s/g, '$1 The Shah\'s'],
@@ -74,5 +83,11 @@ export default [
   [/([\.:])\s*Trump/g, '$1 The Shah'],
   [/^\s*(The|Donald) Trump/g, 'The Shah'],
   [/^\s*Trump/g, 'The Shah'],
-  [/(Mr. )?Trump/g, 'the Shah']
+  [/(Mr. )?Trump/g, 'the Shah'],
+
+  [/White House/g, 'White Palace of Perjury'],
+  [/(H|h)omeland/g, 'Drumpland'],
+  [/Breitbart/g, 'Reichbart'],
+  [/alt-right/g, 'White Supremacist Nationalist Ditzpile'],
+  [/(I|i)nauguration/g, 'Assumption of Rule'],
 ];

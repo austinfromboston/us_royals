@@ -4,7 +4,8 @@
   },
   "babel": {
     "presets": [
-      "es2015", "stage-0"
+      "es2015",
+      "stage-0"
     ]
   },
   "name": "us_royals",
@@ -23,7 +24,9 @@
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
+    "eslint": "^3.15.0",
     "file-loader": "^0.10.0",
+    "jsdom": "^9.10.0",
     "mocha": "^3.2.0",
     "sinon-chai": "^2.8.0",
     "webpack": "^2.2.1"

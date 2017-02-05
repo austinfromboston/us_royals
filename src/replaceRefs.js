@@ -1,9 +1,10 @@
 import replacements from './replacements';
 
-const allRoyals = new RegExp(replacements.map(function(r) { return r[0].source}).join('|'));
+const allRoyals = new RegExp(replacements.map(function(r) { return r[0].source; }).join('|'));
 
 function textNodesUnder(el){
-  var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+  // var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+  var n, a=[], walk=document.createTreeWalker(el,4,null,false);
   while(n=walk.nextNode()) a.push(n);
   return a;
 }
@@ -26,13 +27,16 @@ export function replaceText(text) {
 
 }
 
-export default function replaceRefs() {
+export default function replaceRefs(target=document.body) {
   let newText;
-  textNodesUnder(document.body).forEach(function(node) {
-    //node.royalsReplaced && node.royalsReplaced == node.textContent
+  textNodesUnder(target).forEach(function(node) {
+    if(node.royalsReplaced) {
+      return;
+    }
     newText = replaceText(node.textContent);
     if(newText) {
       node.textContent = newText;
+      node.royalsReplaced = true
     }
   });
 }
