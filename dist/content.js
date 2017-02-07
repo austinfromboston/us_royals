@@ -90,9 +90,10 @@ var allRoyals = new RegExp(_replacements2.default.map(function (r) {
 }).join('|'));
 
 function textNodesUnder(el) {
+  // var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
   var n,
       a = [],
-      walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+      walk = document.createTreeWalker(el, 4, null, false);
   while (n = walk.nextNode()) {
     a.push(n);
   }return a;
@@ -116,12 +117,17 @@ function replaceText(text) {
 }
 
 function replaceRefs() {
+  var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
+
   var newText = void 0;
-  textNodesUnder(document.body).forEach(function (node) {
-    //node.royalsReplaced && node.royalsReplaced == node.textContent
+  textNodesUnder(target).forEach(function (node) {
+    if (node.royalsReplaced) {
+      return;
+    }
     newText = replaceText(node.textContent);
     if (newText) {
       node.textContent = newText;
+      node.royalsReplaced = true;
     }
   });
 }
@@ -190,10 +196,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = [
 // DJT
-[/@realDonaldTrump/g, '@realShah'], [/@POTUS/g, '@TheShah'], [/^\s*President Trump/g, 'The Shah'], [/^\s*President Donald Trump/g, 'The Shah Himself'], [/President Trump/g, 'the Shah'], [/President Donald Trump/g, 'the Shah Himself'], [/President of the United States/g, 'Shah of The Biggly Great Amerika'], [/Mr.? President/g, 'O Great Fearsome and Benevolent Shah'], [/^\s*Trump (A|a)dministration/g, 'The Shah\'s Imperious Cabal'], [/(The )(Current )(A|a)dministration/g, 'The Shah\'s Imperious Cabal'], [/(the )(Trump|current) (A|a)dministration/, 'the Shah\'s Imperious Cabal'], [/((T|t)he) (p|P)resident['’\u2019]s/g, '$1 Shah\'s'], [/(a|A) (p|P)residential Memorandum/g, "$1n Imperial Memorandum"], [/(p|P)residential/g, 'Royal'], [/(t|T)he 45th (P|p)resident/g, '$1he Eternal Shah'], [/45th (p|P)resident/g, 'Shah the First'], [/(our|my|the) (p|P)resident/g, "$1 Shah"], [/Trump's presidency/g, "the Shah\'s ham-fisted reign"], [/Trump presidency/g, "Shah\'s ham-fisted reign"], [/((T|t)his) (P|p)residency/g, '$1 ham-fisted reign'], [/anti-Trump/g, 'anti-Shah'], [/\ba Trump/g, 'the Shah\'s'], [/some Trump/g, 'some Shah'], [/one Trump/g, 'one Shah'],
+[/@realDonaldTrump/g, '@realShah'], [/@POTUS/g, '@TheShah'], [/^\s*President Trump/g, 'The Shah'], [/^\s*President Donald Trump/g, 'The Shah Himself'], [/President Trump/g, 'the Shah'], [/President Donald Trump/g, 'the Shah Himself'], [/President of the United States/g, 'Shah of The Biggly Great Amerika'], [/Mr.? President/g, 'O Great Fearsome and Benevolent Shah'], [/^\s*Trump (A|a)dministration/g, 'The Shah\'s Imperious Cabal'], [/((T|t)he )((Trump|(C|c)urrent) )?(A|a)dministration/g, '$1Shah\'s Imperious Cabal'], [/(Trump|Current )?(A|a)dministration/g, 'The Shah\'s Imperious Cabal'], [/(Trump|current)? (A|a)dministration/g, 'The Shah\'s Imperious Cabal'], [/Trump cabinet/g, 'The Shah\'s Imperious Cabal'], [/((T|t)he) (p|P)resident['’\u2019]s/g, '$1 Shah\'s'], [/(a|A) (p|P)residential Memorandum/g, "$1n Imperial Memorandum"], [/(p|P)residential/g, 'Royal'], [/(t|T)he 45th (P|p)resident/g, '$1he Eternal Shah'], [/45th (p|P)resident/g, 'Shah the First'], [/(our|my|the) (p|P)resident/g, "$1 Shah"], [/Trump's presidency/g, "the Shah\'s ham-fisted reign"], [/Trump presidency/g, "Shah\'s ham-fisted reign"], [/((T|t)his) (P|p)residency/g, '$1 ham-fisted reign'], [/anti-Trump/g, 'anti-Shah'], [/\ba Trump/g, 'the Shah\'s'], [/some Trump/g, 'some Shah'], [/one Trump/g, 'one Shah'],
 
 // The entourage
-[/((T|t)he) Trump family/g, "$1 Shah's organized crime family"], [/((T|t)he) Trumps/g, '$1 Shah\'s organized crime family'], [/Trump family/g, 'The Shah\'s organized crime family'], [/Trumps/g, 'Royal Family'], [/the Trump/g, 'the Shah'], [/Trump Tower/g, 'the Shah\'s mile-high lair'], [/White House/g, 'White Palace of Perjury'],
+[/((T|t)he) Trump family/g, "$1 Shah's organized crime family"], [/((T|t)he) Trumps/g, '$1 Shah\'s organized crime family'], [/Trump family/g, 'The Shah\'s organized crime family'], [/Trumps/g, 'Royal Family'], [/the Trump/g, 'the Shah'], [/Trump Tower/g, 'the Shah\'s mile-high lair'],
 
 // The jape in heels
 [/Mrs.? Trump/g, 'The Czarina'], [/^\s*Melania( Trump)?/g, 'The Czarina'], [/Melania( Trump)?/g, 'the Czarina'],
@@ -205,10 +211,10 @@ exports.default = [
 [/Ivana Trump/g, 'Ivana (the Shah\'s first cast-aside wife and mother of his children)'], [/Ivana Marie Trump/g, 'Ivana (the Shah\'s first cast-aside wife and mother of his children)'], [/Marla Maples/g, 'Marla (the Shah\'s second cast-aside wife and mother of his children)'], [/Marla Trump/g, 'Marla (the Shah\'s second cast-aside wife and mother of his children)'], [/Marla Ann Maples/g, 'Marla (the Shah\'s second cast-aside wife and mother of his children)'],
 
 // the Administration -- lots more to do here
-[/(E|e)xecutive (O|o)rder/g, 'Imperial Order'], [/Vice President Mike Pence/g, 'Grand Inquisitor Pence'], [/@mike_pence/g, '@Grand_Inquisitor_Pence'], [/@VP/g, '@GrandInquisitorPence'], [/@WhiteHouse/g, '@WhitePalaceOfPerjury'], [/@StephenBannon/g, '@SvengaliMephistoNotoriousP.I.G.'], [/\bBannon\b/g, 'Svengali Mephisto Notorious P.I.G.'], [/(Vice President|Mike|Mr.) Pence/g, 'Grand Inquisitor Pence'], [/Mr.? Vice President/g, 'O Ruthlessly Intolerant Grand Inquisitor'],
+[/(E|e)xecutive (O|o)rder/g, 'Imperial Order'], [/(E|e)xecutive (A|a)ction/g, 'Imperial Action'], [/cabinet-level (decision|position)/g, 'Cabal-level $1'], [/Vice President Mike Pence/g, 'Grand Inquisitor Pence'], [/@mike_pence/g, '@Grand_Inquisitor_Pence'], [/@VP/g, '@GrandInquisitorPence'], [/@WhiteHouse/g, '@WhitePalaceOfPerjury'], [/@StephenBannon/g, '@SvengaliMephistoNotoriousP.I.G.'], [/\bBannon\b/g, 'Svengali Mephisto Notorious P.I.G.'], [/(Vice President|Mike|Mr.) Pence/g, 'Grand Inquisitor Pence'], [/Mr.? Vice President/g, 'O Ruthlessly Intolerant Grand Inquisitor'],
 
 // save the catchall for last
-[/(T|t)he Donald Trump/g, '$1he Shah'], [/Donald (J(\.|ohn) )?Trump/g, 'the Shah'], [/^\s*Mr.? Trump/g, 'The Shah'], [/Mr.? Trump/g, 'the Shah'], [/([\.:])\s*Trump['’\u2019]s/g, '$1 The Shah\'s'], [/Trump['’\u2019]s/g, 'The Shah\'s'], [/([\.:])\s*Trump/g, '$1 The Shah'], [/^\s*(The|Donald) Trump/g, 'The Shah'], [/^\s*Trump/g, 'The Shah'], [/(Mr. )?Trump/g, 'the Shah']];
+[/(T|t)he Donald Trump/g, '$1he Shah'], [/^\s*Donald (J(\.|ohn) )?Trump/g, 'The Shah'], [/Donald (J(\.|ohn) )?Trump/g, 'the Shah'], [/^\s*Mr.? Trump/g, 'The Shah'], [/Mr.? Trump/g, 'the Shah'], [/([\.:])\s*Trump['’\u2019]s/g, '$1 The Shah\'s'], [/Trump['’\u2019]s/g, 'The Shah\'s'], [/([\.:])\s*Trump/g, '$1 The Shah'], [/^\s*(The|Donald) Trump/g, 'The Shah'], [/^\s*Trump/g, 'The Shah'], [/(Mr. )?Trump/g, 'the Shah'], [/White House/g, 'White Palace of Perjury'], [/(H|h)omeland/g, 'Drumpland'], [/Breitbart/g, 'Reichbart'], [/alt-right/g, 'White Supremacist Nationalist Ditzpile'], [/(I|i)nauguration/g, 'Assumption of Rule']];
 
 /***/ }),
 /* 4 */

@@ -50,4 +50,7 @@ export default [
   ["Breitbart is loaded with racists", "Reichbart is loaded with racists"],
   ["The alt-right is ecstatic", "The White Supremacist Nationalist Ditzpile is ecstatic"],
   ["that darn inauguration was a farce", "that darn Assumption of Rule was a farce"],
+  ["a result of President Trump's ban on travel", "a result of the Shah's ban on travel"],
+  ["Trump cabinet officials say", "The Shah's Imperious Cabal officials say"],
+  ["Donald Trump's guy on Capitol Hill", "The Shah's guy on Capitol Hill"],
 ];

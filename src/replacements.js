@@ -11,7 +11,8 @@ export default [
   [/^\s*Trump (A|a)dministration/g, 'The Shah\'s Imperious Cabal'],
   [/((T|t)he )((Trump|(C|c)urrent) )?(A|a)dministration/g, '$1Shah\'s Imperious Cabal'],
   [/(Trump|Current )?(A|a)dministration/g, 'The Shah\'s Imperious Cabal'],
-  [/(Trump|current)? (A|a)dministration/g, 'the Shah\'s Imperious Cabal'],
+  [/(Trump|current)? (A|a)dministration/g, 'The Shah\'s Imperious Cabal'],
+  [/Trump cabinet/g, 'The Shah\'s Imperious Cabal'],
   [/((T|t)he) (p|P)resident['’\u2019]s/g, '$1 Shah\'s'],
   [/(a|A) (p|P)residential Memorandum/g, "$1n Imperial Memorandum"],
   [/(p|P)residential/g, 'Royal'],
@@ -75,6 +76,7 @@ export default [
 
   // save the catchall for last
   [/(T|t)he Donald Trump/g, '$1he Shah'],
+  [/^\s*Donald (J(\.|ohn) )?Trump/g, 'The Shah'],
   [/Donald (J(\.|ohn) )?Trump/g, 'the Shah'],
   [/^\s*Mr.? Trump/g, 'The Shah'],
   [/Mr.? Trump/g, 'the Shah'],
